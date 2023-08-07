@@ -1,0 +1,16 @@
+version: "3"
+services:
+    apache-php:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./app:/var/www/html
+            # - ./init-ssl.sh:/usr/local/bin/init-ssl.sh
+        # command: bash -c "/usr/local/bin/init-ssl.sh && apache2-foreground"
+
+volumes:
+    app: {} # Define the volume to share the code
